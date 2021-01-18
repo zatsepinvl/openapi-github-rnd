@@ -20,11 +20,17 @@ jobs:
        - name: Generate Swagger UI
          uses: Legion2/swagger-ui-action@v1
          with:
-           output: swagger-ui
-           spec-file: ./petstore-openapi.yaml
+          output: swagger-ui
+          spec-file: ./petstore-openapi.yaml
           
        - name: Deploy to GitHub Pages
          uses: peaceiris/actions-gh-pages@v3
          with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: swagger-ui
+
+       - name: Spec
+         uses: actions/upload-artifact@v2
+         with:
+          name: spec
+          path: ./petstore-openapi.yaml
