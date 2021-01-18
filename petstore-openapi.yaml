@@ -15,7 +15,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.5
+  version: 1.0.6
 externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
@@ -35,7 +35,7 @@ tags:
     description: Find out more about our store
     url: http://swagger.io
 paths:
-  /pet:
+  /pet/pets:
     put:
       tags:
       - pet
