@@ -7,18 +7,21 @@ on: push
 jobs:
   # Set the job key. The key is displayed as the job name
   # when a job name is not provided
-  diff:
+  openapi:
     # Name the Job
-    name: Identify diff in openapi specs
+    name: Host openapi spec
     # Set the type of machine to run on
     runs-on: ubuntu-latest
 
     steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+
        - name: Generate Swagger UI
          uses: Legion2/swagger-ui-action@v1
          with:
            output: swagger-ui
-           spec-file: petstore-openapi.yaml
+           spec-file: ./petstore-openapi.yaml
           
        - name: Deploy to GitHub Pages
          uses: peaceiris/actions-gh-pages@v3
