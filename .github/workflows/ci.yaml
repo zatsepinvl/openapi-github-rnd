@@ -1,5 +1,5 @@
 
-name: Differ
+name: OpenAPI
 
 # Run this workflow every time a new commit pushed to your repository
 on: push
@@ -18,11 +18,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: head
+
       - name: Check out master branch
         uses: actions/checkout@v2
         with:
           ref: master
           path: base
+
       - name: Run OpenAPI Diff (from HEAD revision)
         uses: mvegter/openapi-diff-action@v0.23.3
         with:
